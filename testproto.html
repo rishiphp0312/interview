@@ -1,0 +1,262 @@
+<!Doctype>
+<html>
+<body>
+<script type="application/javascript">
+var total = [0, 1, 2, 3].reduce(function(a, b) {
+  return a + b;
+});
+alert(total);
+// total == 6
+
+ //[2, 5, , 9].forEach(e,i){
+ //"use strict";
+ 
+ var array = [2, 5, 9, 2];
+console.log(array.lastIndexOf(2,2));     // 3
+
+ 
+ 
+ var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+
+console.log(myFish); // ['angel', 'clown', 'mandarin', 'sturgeon']
+
+var popped = myFish.pop();
+
+console.log(myFish); // ['angel', 'clown', 'mandarin' ] 
+
+console.log(popped); // 'sturgeon'
+
+
+ var sports = ['soccer', 'baseball'];
+var total = sports.push('football');
+
+console.log(sports); // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total);  // 4
+ var sports1 = ['soccer', 'baseball'];
+var total1 = sports1.pop('soccer');
+
+console.log('--sports1=='+sports1); // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total1);  // 4
+var vegetables = ['parsnip', 'potato'];
+var moreVegs = ['celery', 'beetroot'];
+
+// Merge the second array into the first one
+// Equivalent to vegetables.push('celery', 'beetroot');
+Array.prototype.push.apply(vegetables, moreVegs);
+
+console.log(vegetables); // ['parsnip', 'potato', 'celery', 'beetroot']
+ var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];
+
+// removes 0 elements from index 2, and inserts 'drum'
+var removed = myFish.splice(3, 0, 'drum');
+// myFish is ['angel', 'clown', 'drum', 'mandarin', 'surgeon']
+// removed is [], no elements removed
+console.log(myFish);
+
+ var foo = 0;
+ var arr = [55, 65, 57];
+arr.foo = 98;
+    console.log(arr.length);
+arr.forEach(function (element, index) {
+    console.log(element); // logs "3", "5", "7"
+    console.log(index);   // logs "0", "1", "2"
+});
+
+Object.keys(arr).forEach(function (element, index) {
+    console.log(element+'==obj=='+arr[element]); // logs "3", "5", "7", "hello"
+    console.log(index+'==indexobj=='+arr[index]);   // logs "3", "5", "7"
+});
+
+ 
+ var arra = [3, 5, 7];
+ arra.foo = "hello";
+
+for (var loop in arra) {
+   console.log(loop+'=='+arra[loop]); // logs "0", "1", "2", "foo"
+}
+
+for (var loop of arra) {
+   console.log(loop); // logs "3", "5", "7"
+}
+ 
+ 
+ function abc(){
+    var a=1, b=2;
+alert('aaaya nahi'); 
+ // c:3
+ };
+ 
+ var derse= abc;
+ 
+//triangle.d=7;
+var kk  = new abc();
+for (var prop in kk) {
+  if( kk.hasOwnProperty( prop ) ) {
+    console.log("o.---" + prop + " = " + kk[prop]);
+  } 
+}
+
+function ColoredTriangle() {
+  this.color = "red";
+  this.coloraA = "redAA";
+  
+  
+  /*var get:function(){
+      return this.color;
+  };
+  */
+  
+}
+
+ColoredTriangle.prototype = triangle;
+
+var obj = new ColoredTriangle();
+//alert(obj);
+
+for (var prop in obj) {
+  if( obj.hasOwnProperty( prop ) ) {
+    console.log("o." + prop + " = " + obj[prop]);
+  } 
+}
+var car = {};
+car.wheels = 4;
+car.doors = 2;
+car.sound = 'vroom';
+car.name = 'Lightning McQueen';	
+//console.log( car );
+//localStorage.setItem( 'car', JSON.stringify(car) );
+//console.log( JSON.parse(localStorage.getItem( 'car' )) );
+localStorage.setItem( 'car', car );
+console.log( localStorage.getItem( 'car' ) );
+
+
+</script>
+
+</body>
+</html>
+	
+<script type="application/javascript">
+  //var i = 1
+ // var timer = setInterval(function() { alert(i++) }, 2000)
+    
+	//"use strict"
+
+	/*var strjson = "{
+	'country':[{'A' :['a1s':['a1c','a2c']]},{'B' :'a1s'}]
+	
+	}";
+	*/
+	var objcall = {
+	name:'raj',profession:'sss'
+	}
+	function theFunction() {
+    alert("My name is " +this.name + " and I am a " + this.profession + ".");
+}
+//theFunction("John", "fireman");
+//theFunction.apply(undefined, ["Susan", "school teacher"]);
+theFunction.call(objcall);
+
+
+
+
+	//alert(this.properboy);
+	var name = "Baggins";
+
+(function () {
+    // Outputs: "Original name was undefined"
+    console.log("Original name was " + name);
+
+    var name = "Underhill";
+
+    // Outputs: "New name is Underhill"
+    console.log("New name is " + name);
+})();
+
+    var parentobj = {
+         get:function(){
+		 //alert(this.val);
+				return this.val;
+		 },
+		 
+      constructor:function(num){
+	  this.val =num;
+	  }
+    };
+	
+    parentobj.constructor(67);
+
+    alert(parentobj.get());
+ 
+    var childobj = Object.create(parentobj);
+    childobj.get = function(){
+		//alert('hua'+parentobj.get());
+		return 'hua'+parentobj.get.call(this);
+   };
+   //childobj.val =78;
+   childobj.constructor(78);
+   alert(childobj.get());
+   
+   var grandchildobj = Object.create(childobj);
+
+  //grandchildobj.val =7000;
+   grandchildobj.constructor(6700);
+
+  alert(grandchildobj.get());
+
+  var y =43;
+
+ opsen();
+
+ function opsen(){
+   y= 47;
+   var k= 90;
+alert(y); 
+ }
+ var vvv=1;
+  // vvv += 6+2+"22"+3+4; // 182234
+  // vvv = vvv+6+2+"22"+3+4; // 92234
+ // vvv = 2+"22"+3+4; // 22234
+
+  //vvv = "22"+3+4; // 2234
+    vvv = 2+3+"22"; // 522
+
+
+alert(vvv); 
+ //var eval = 3.14;         // This will cause an error 
+ //var arguments = 3.14;    // This will cause an error 
+// with (Math){x = cos(2)}; // This will cause an error 
+  //function x(p1, p1) {}    // This will cause an error 
+ var obj = {get x() {return 0} };
+
+ obj.x = 3.14;            //
+ //alert(obj.x);
+ var  x = 3.14;       // This will cause an error
+ myFunction();   // This will also cause an error
+
+ //delete x;                 // This will cause an error
+ //alert(x);
+
+function myFunction() {
+   x = 3.14;
+	alert(x);
+}
+
+  function abc(){
+  
+	     return this.a;
+	 }
+	 
+	 var obj1 = {
+	 get :abc,
+	 a:21
+	 };
+	 var obj2 =  {
+	 get :abc,
+	 a:211
+	 };
+  alert(obj1.get());
+  alert(obj2.get());
+  alert(abc());
+  
+  
+</script>

@@ -1,0 +1,68 @@
+<!Doctype>
+<html>
+<body>
+<script type="application/javascript">
+  var types =['kkkkk','AAA','BB'];
+  var i=0;
+    types[0] = [];
+    // types[0] = [88, 99, 9888];
+    types[0][0] = [8, 9, 900];
+	types[0][1] = [8809, 9908, 98880];
+	for(var k in types){
+		console.log(types[k]+'=='+k);
+	}
+    console.log(types);
+    
+	function Person(num) {
+    
+   	  this.val =num;
+	  console.log('=='+num);
+		 
+    };
+	
+	Person.prototype.name = 'jadu';
+	Person.prototype.get = function fn1(){
+		console.log('==');	
+	    return this.val;
+	 };
+	
+    var firstobj = new Person(10);
+     //	      Person.constructor(10);
+    firstobj.get();
+	function firmPerson(num){
+			Person.call(this,num);
+	}
+	
+	//firmPerson.prototype.name   = 'mnis';
+	
+	firmPerson.prototype  = Object.create(Person.prototype);	
+	firmPerson.prototype.get   = function (){
+	
+    	return Person.prototype.get.call(this)+'==nnnnn=';
+	};
+ 	
+	var secondobj = new firmPerson(20);
+    alert(secondobj.get());   	
+	alert(secondobj.name+'==name');   	
+	    
+//   var secondobj = Object.create(firstobj);	  
+  // secondobj.get();
+
+    /*
+	var childobj = Object.create(parentobj);
+    childobj.get = function(){
+		//alert('hua'+parentobj.get());
+		return 'hua'+parentobj.get.call(this);
+   };
+   //childobj.val =78;
+   childobj.constructor(78);
+   alert(childobj.get());
+   
+   var grandchildobj = Object.create(childobj);
+
+  //grandchildobj.val =7000;
+   grandchildobj.constructor(6700);
+
+  */
+  
+</script>
